@@ -1,15 +1,18 @@
 # Physical-Media-Database-Step-8 #
 By Xavier L.
 05/16/2020
+
 ---
 ### Description ###
 By design this web app is a manual catelog of all physical media the user has.  
+
 ---
 ### Functionality ###
 * Create categories of media and media entries
 * Modify categories of media and media entries
 * Delete categories of media and media entries
 * Separated media entries by user and only you can access them
+
 ---
 ### Design ###
 The data is stored in three tables. One containing user information, one with the media entries and one with the media categories.
