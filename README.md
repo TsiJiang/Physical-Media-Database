@@ -40,7 +40,7 @@ GO
 ```
 
 ---
-#### mediaTyoes ####
+#### mediaTypes ####
 ```tsql
 /****** Object:  Table [dbo].[mediaTypes]    Script Date: 5/14/2020 7:58:55 PM ******/
 CREATE TABLE [dbo].[mediaTypes]
