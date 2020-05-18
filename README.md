@@ -71,13 +71,13 @@ CREATE TABLE [dbo].[users]
 /****** Object:  Table [dbo].[mediaCatelog]    Script Date: 5/14/2020 7:58:55 PM ******/
 CREATE TABLE [dbo].[mediaCatelog]
 (
-	[id]			[int]			IDENTITY		NOT NULL,
-	[title]			[nvarchar](50)					NOT NULL,
-	[dateModified]	[date]							NOT NULL,
+	[id]			[int]			IDENTITY			NOT NULL,
+	[title]			[nvarchar](50)						NOT NULL,
+	[dateModified]		[date]							NOT NULL,
 	[size]			[float]							NULL,
 	[qtyType]		[nchar](2)						NULL,
 	[userId]		[int]							NOT NULL,
-	[mediaTypeId]	[int]							NOT NULL,
+	[mediaTypeId]		[int]							NOT NULL,
 	CONSTRAINT [PK_mediaCatelog] PRIMARY KEY([id]),
 	CONSTRAINT [FK_mediaCatelog] FOREIGN KEY([mediaTypeId])
 		REFERENCES [dbo].[mediaTypes]([id]),
