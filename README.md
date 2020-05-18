@@ -1,7 +1,7 @@
 # Physical-Media-Database-Step-8 #
 By Xavier L.
 05/16/2020
-![Database Image]()
+![Database Image](./2020-05-18_8-29-34.png)
 
 ---
 ### Description ###
