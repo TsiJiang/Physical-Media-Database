@@ -1,0 +1,40 @@
+﻿@model User
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Media Database</title>
+</head>
+<body>
+    <form asp-action="Update" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="Password" />
+        <input type="hidden" name="id" value=@Model.Id/>
+        <table>
+            <tr>
+                <th>Email: </th>
+                <td><input asp-for="Email" /></td>
+            </tr>
+            <tr>
+                <th>Old Password: </th>
+                <td><input type="password" name="oldPass" TextMode="Password" /></td>
+            </tr>
+            <tr>
+                <th>New Password: </th>
+                <td><input type="password" name="newPass" TextMode="Password" /></td>
+            </tr>
+            <tr>
+                <th>Confirm Password: </th>
+                <td><input type="password" name="newPass2" TextMode="Password" /></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Update" /></td>
+                <td>
+                    <button asp-controller="User" asp-action="Detail"> Cancel </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

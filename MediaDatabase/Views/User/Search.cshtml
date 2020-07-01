@@ -1,0 +1,20 @@
+﻿@model IQueryable<User>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Media Database </title>
+</head>
+
+<body>
+    <hr />
+    @foreach (User u in Model)
+    {
+        <a asp-controller="User" asp-action="Detail" asp-route-id=@u.Id><h3> User Email: @u.Email  </h3></a>
+        <hr />
+    }
+    <a asp-controller="User" asp-action="Index"><button> Back </button></a>
+</body>
+</html>

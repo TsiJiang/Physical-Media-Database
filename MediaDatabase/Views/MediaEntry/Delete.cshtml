@@ -1,0 +1,26 @@
+﻿@model MediaEntry
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Media Database</title>
+</head>
+<body>
+    <h3>Title:          @Model.Name </h3>
+    <h3>Last Modified:  @Model.LastModified </h3>
+    <h3>Size:           @Model.Size</h3>
+    <h3>Unit of Issue:  @Model.SizeType</h3>
+    <h1> Are you sure? </h1>
+    <form>
+        <input type="hidden" name="id" value=@Model.Id />
+        <input type="hidden" name="userId" value=@Model.UserId />
+        <button asp-controller="MediaEntry" asp-action="Delete" formmethod="post">
+            Delete 
+        </button>
+        <button asp-controller="MediaEntry" asp-action="Detail">
+            Cancel 
+        </button>
+    </form>
+</body>
+</html>

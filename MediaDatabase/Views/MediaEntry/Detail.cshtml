@@ -1,0 +1,37 @@
+﻿@model MediaEntry
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Media Database </title>
+</head>
+
+<body>
+    <h3>
+        Title: @Model.Name
+        <a asp-controller="MediaEntry" asp-action="Update" asp-route-userId=@Model.UserId asp-route-id=@Model.Id>
+            &#128393
+        </a>
+        <a asp-controller="MediaEntry" asp-action="Delete" asp-route-userId=@Model.UserId asp-route-id=@Model.Id>
+            &#9587
+        </a>
+    </h3>
+    <h4>
+        Last Updated: @Model.LastModified
+    </h4>
+    <h4>
+        Size: @Model.Size
+    </h4>
+    <h4>
+        Unit of Issue: @Model.SizeType
+    </h4>
+    <form>
+        <input type="hidden" name="id" value=@Model.UserId />
+        <button asp-controller="User" asp-action="Detail">
+            Back
+        </button>
+    </form>
+</body>
+</html>

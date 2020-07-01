@@ -1,0 +1,23 @@
+﻿@model IQueryable<MediaEntry>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Media Database </title>
+</head>
+
+<body>
+    <hr />
+    @foreach (MediaEntry me in Model)
+    {
+        <a asp-controller="MediaEntry" asp-action="Detail" asp-route-id=@me.Id asp-route-userId="@me.UserId"><h3> Name: @me.Name  </h3></a>
+        <hr />
+    }
+    <form>
+        <input type="hidden" name="id" value=@Model.First().UserId /> 
+        <button asp-controller="User" asp-action="Detail"> Back </button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿@model MediaEntry
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Media Database</title>
+</head>
+<body>
+    <form asp-action="Create" method="post">
+        <input type="hidden" asp-for="UserId" />
+        <table>
+            <tr>
+                <th>Name: </th>
+                <td><input asp-for="Name" /></td>
+            </tr>
+            <tr>
+                <th> Size: </th>
+                <td><input asp-for="Size" /></td>
+            </tr>
+            <tr>
+                <th>Unit of Issue: </th>
+                <td><input asp-for="SizeType" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Create" />
+                </td>
+                <td>
+                    <button asp-controller="User" asp-action="Detail" name="id" value=@Model.UserId>
+                        Cancel
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@model User
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Media Database</title>
+</head>
+<body>
+    <form asp-action="Create" method="post">
+        <table>
+            <tr>
+                <th>Email:              </th>
+                <td><input asp-for="Email" /></td>
+            </tr>
+            <tr>
+                <th>Password:           </th>
+                <td><input type="password" name="pass" TextMode="Password"/></td>
+            </tr>
+            <tr>
+                <th>Confirm Password:   </th>
+                <td><input type="password" name="pass2" TextMode="Password" /></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Create" /></td>
+                <td><button asp-controller="User" asp-action="Index"> Cancel </button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
