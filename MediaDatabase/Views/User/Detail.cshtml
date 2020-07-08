@@ -2,28 +2,26 @@
 
 <!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title> Media Database </title>
-</head>
-
+@{ 
+    ViewBag.Title = "User Details";
+}
 <body>
-    <h3> 
-        User Email: @Model.Email 
+    <h3>
+        User Email: @Model.Email
         <a asp-controller="User" asp-action="Update" asp-route-id=@Model.Id>&#128393;</a>
         <a asp-controller="User" asp-action="Delete" asp-route-id=@Model.Id>&#9587;</a>
-</h3>
+    </h3>
     <h3> Password:   &#183;&#183;&#183;&#183;&#183;&#183;&#183;&#183; </h3>
     <form>
-        <button asp-controller="User" asp-action="Index">Back</button>
+        <button asp-controller="User" asp-action="Index"> Home </button>
+        <button asp-controller="User" asp-action="Logout"> Log Out </button>
     </form>
     <hr />
     <h3> Media Entries </h3>
     <table>
         <tr>
             <th>
-                Title 
+                Title
             </th>
         </tr>
         <tr>
@@ -31,16 +29,15 @@
                 <a asp-controller="MediaEntry" asp-action="Create" method="Get" asp-route-userId=@Model.Id>Add Media Entry +</a>
             </td>
         </tr>
-        @foreach (MediaEntry me in Model.MediaEntries) 
+        @foreach (MediaEntry me in Model.MediaEntries)
         {
             <tr>
-                <td> 
-                <a asp-controller="MediaEntry" asp-action="Detail" asp-route-userId=@me.UserId asp-route-id=@me.Id>
-                    @me.Name 
-                </a>
+                <td>
+                    <a asp-controller="MediaEntry" asp-action="Detail" asp-route-userId=@me.UserId asp-route-id=@me.Id>
+                        @me.Name
+                    </a>
                 </td>
             </tr>
         }
     </table>
 </body>
-</html>

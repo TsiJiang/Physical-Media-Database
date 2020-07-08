@@ -1,4 +1,4 @@
-﻿@model IQueryable<MediaEntry>
+﻿@model User
 
 <!DOCTYPE html>
 
@@ -10,11 +10,11 @@
 
 <body>
     <hr />
-    @foreach (MediaEntry me in Model)
+    @foreach (MediaEntry me in Model.MediaEntries)
     {
         <a asp-controller="MediaEntry" asp-action="Detail" asp-route-id=@me.Id><h3> @me.Name  </h3></a>
         <hr />
     }
-    <a asp-controller="Media Entry" asp-action="Create" UserId=@Model.First().UserId><strong>Create New Media Entry+</strong></a>
+    <a asp-controller="Media Entry" asp-action="Create" UserId=@Model.Id><strong>Create New Media Entry+</strong></a>
 </body>
 </html>

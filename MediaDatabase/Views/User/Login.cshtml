@@ -1,0 +1,40 @@
+﻿@model User
+
+@{
+   ViewBag.Title = "Login";
+}
+
+<body>
+    <form asp-controller="User" asp-action="Login" method="post">
+        <table>
+            <tbody>
+                <tr>
+                    <th class="text-right"> Username (Email): </th>
+                    <td> <input asp-for="Email" /> </td>
+                </tr>
+
+                <tr>
+                    <th class="text-right"> Password: </th>
+                    <td> <input asp-for="Password" type="password" /> </td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <th colspan="2"> <hr /> </th>
+                </tr>
+                <tr>
+                    <td class="text-center" colspan="2">
+                        <input type="submit" class="btn btn-success btn-sm"
+                               value="Login" />
+                        <button asp-controller="User" asp-action="Index"
+                                formmethod="get"
+                                class="btn btn-danger btn-sm">
+                            Cancel
+                        </button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+</body>

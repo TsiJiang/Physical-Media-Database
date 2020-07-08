@@ -1,20 +1,44 @@
 ﻿@model IQueryable<User>
 
-<!DOCTYPE html>
+@{
+    ViewBag.Title = "Home Page";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title> Media Database </title>
-</head>
+<h1> Welcome to your Media Database </h1>
+<hr />
+<form>
+    <button asp-controller="User" asp-action="Register"
+            formmethod="get" class="btn btn-success btn-sm">
+        Register
+    </button>
 
-<body>
-    <hr />
-    @foreach (User u in Model)
-    {
-        <a asp-controller="User" asp-action="Detail" asp-route-id=@u.Id><h3> @u.Email  </h3></a>
-        <hr />
-    }
-    <a asp-controller="User" asp-action="Create"><strong>Create New User+</strong></a>
-</body>
-</html>
+    <button asp-controller="User" asp-action="Login"
+            formmethod="get" class="btn btn-danger btn-sm">
+        Login
+    </button>
+</form>
+
+
+<!--<table>
+    <thead>
+        <tr>
+            <th colspan="3"> <hr /> </th>
+        </tr>
+        <tr>
+            <th> Id </th>
+            <th> Username (Email) </th>
+            <th> Password </th>
+        </tr>
+    </thead>
+    <tbody>
+        foreach (User user in Model)
+        {
+            <tr>
+                <td> user.Id </td>
+                <td> user.Email </td>
+                <td> user.Password </td>
+            </tr>
+        }
+    </tbody>
+</table>-->
+

@@ -13,6 +13,9 @@ namespace MediaDatabase.Models
         IQueryable<User> GetAllUsers();
         User GetUserById(int UserId);
         IQueryable<User> GetUsersByKeyword(string keyword);
+        bool Login(User user, string pass);
+        int GetLoggedUser();
+        void RemoveLoggedUser();
         //   U p d a t e
         User UpdateUser(User user);
         //   D e l e t e

@@ -1,11 +1,8 @@
 ﻿@model User
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title> Media Database</title>
-</head>
+@{ 
+    ViewBag.Title = "Update User Details";
+}
 <body>
     <form asp-action="Update" method="post">
         <input type="hidden" asp-for="Id" />
@@ -37,4 +34,3 @@
         </table>
     </form>
 </body>
-</html>

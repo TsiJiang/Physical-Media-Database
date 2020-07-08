@@ -37,6 +37,7 @@ namespace MediaDatabase
                       EfMediaEntryRepository>();
 
             services.AddControllersWithViews();
+            services.AddHttpContextAccessor();
             services.AddMemoryCache();
             services.AddSession();
         }

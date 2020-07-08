@@ -1,12 +1,8 @@
 ﻿@model IQueryable<User>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title> Media Database </title>
-</head>
+@{ 
+    ViewBag.Title = "Search Page";
+}
 
 <body>
     <hr />
@@ -17,4 +13,4 @@
     }
     <a asp-controller="User" asp-action="Index"><button> Back </button></a>
 </body>
-</html>
+

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,9 +9,11 @@ namespace MediaDatabase.Models
     public class EfMediaEntryRepository : IMediaEntryRepository
     {
         private AppDbContext context;
-        public EfMediaEntryRepository(AppDbContext context) 
+        private readonly IHttpContextAccessor httpContextAccessor;
+        public EfMediaEntryRepository(AppDbContext context, IHttpContextAccessor httpContextAccessor) 
         {
             this.context = context;
+            this.httpContextAccessor = httpContextAccessor;
         }
         MediaEntry IMediaEntryRepository.Create(MediaEntry mediaEntry)
         {
@@ -36,7 +39,14 @@ namespace MediaDatabase.Models
             return context.MediaEntries
                     .Where(me => me.Name.Contains(keyword) && me.UserId ==userId);
         }
-
+        int IMediaEntryRepository.GetLoggedUser() 
+        {
+            if (httpContextAccessor.HttpContext.Session.GetInt32("_UserId") != null) 
+            {
+                return (int)httpContextAccessor.HttpContext.Session.GetInt32("_UserId");
+            }
+            return 0;
+        }
         MediaEntry IMediaEntryRepository.UpdateMediaEntry(MediaEntry mediaEntry)
         {
             MediaEntry entryToUpdate = context.MediaEntries.SingleOrDefault(me => me.Id == mediaEntry.Id);

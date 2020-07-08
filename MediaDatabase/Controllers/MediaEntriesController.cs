@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MediaDatabase.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpsPolicy;
 
 namespace MediaDatabase.Controllers
 {
@@ -38,9 +40,11 @@ namespace MediaDatabase.Controllers
         }
         public IActionResult Index(int id)
         {
-            IQueryable<MediaEntry> allMediaEntries =
-               repository.GetAllMediaEntries(id);
-            return View(allMediaEntries);
+            if (id > 0)
+            {
+                return RedirectToAction("Detail", "User", new { id });
+            }
+            return RedirectToAction("Index", "User");
         }
         public IActionResult Detail(int id, int userId)
         {
@@ -63,13 +67,12 @@ namespace MediaDatabase.Controllers
         public IActionResult Update(int id, int userId)
         {
             MediaEntry mediaEntry = repository.GetMediaEntryById(id);
-            if (mediaEntry != null)
+            if (mediaEntry != null && userId == repository.GetLoggedUser())
             {
-                mediaEntry.UserId = userId;
+                mediaEntry.UserId = repository.GetLoggedUser();
                 return View(mediaEntry);
             }
-            id = userId;
-            return RedirectToAction("Detail","User", new { id });
+            return RedirectToAction("Detail","User", new { id = repository.GetLoggedUser() });
         }
 
         [HttpPost]
@@ -78,8 +81,7 @@ namespace MediaDatabase.Controllers
             mediaEntry.LastModified = System.DateTime.Now;
             repository.UpdateMediaEntry(mediaEntry);
             int id = mediaEntry.Id;
-            int userId = mediaEntry.UserId;
-            return RedirectToAction("Detail","MediaEntry", new { id, userId });
+            return RedirectToAction("Detail","MediaEntry", new { id, userId = repository.GetLoggedUser() });
         }
 
         [HttpGet]
