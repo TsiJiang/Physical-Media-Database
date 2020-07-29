@@ -9,6 +9,7 @@ namespace MediaDatabase.Models
 
         public DbSet<User> Users { get; set; }
         public DbSet<MediaEntry> MediaEntries { get; set; }
+        public DbSet<MediaType> MediaTypes { get; set; }
 
         //   C o n s t r u c t o r s
 
@@ -73,7 +74,8 @@ namespace MediaDatabase.Models
                     LastModified = new DateTime(2018, 12, 30),
                     Size = 30,
                     SizeType = "PG",
-                    UserId = 1
+                    UserId = 1,
+                    MediaTypeId = 3
                 });
             modelBuilder.Entity<MediaEntry>().HasData
                 (new MediaEntry
@@ -83,7 +85,8 @@ namespace MediaDatabase.Models
                     LastModified = new DateTime(2018, 12, 30),
                     Size = 45,
                     SizeType = "PG",
-                    UserId = 1
+                    UserId = 1,
+                    MediaTypeId = 3
                 });
             modelBuilder.Entity<MediaEntry>().HasData
                 (new MediaEntry
@@ -93,7 +96,8 @@ namespace MediaDatabase.Models
                     LastModified = new DateTime(2018, 12, 31),
                     Size = 55,
                     SizeType = "PG",
-                    UserId = 3
+                    UserId = 3,
+                    MediaTypeId = 3
                 });
             modelBuilder.Entity<MediaEntry>().HasData
                 (new MediaEntry
@@ -101,7 +105,8 @@ namespace MediaDatabase.Models
                     Id = 4,
                     Name = "Game A",
                     LastModified = new DateTime(2019, 05, 02),
-                    UserId = 2
+                    UserId = 2,
+                    MediaTypeId = 15
                 });
             modelBuilder.Entity<MediaEntry>().HasData
                 (new MediaEntry
@@ -109,7 +114,8 @@ namespace MediaDatabase.Models
                     Id = 5,
                     Name = "Game B",
                     LastModified = new DateTime(2020, 01, 25),
-                    UserId = 1
+                    UserId = 1,
+                    MediaTypeId = 15
                 });
             modelBuilder.Entity<MediaEntry>().HasData
                 (new MediaEntry
@@ -117,7 +123,8 @@ namespace MediaDatabase.Models
                     Id = 6,
                     Name = "Game C",
                     LastModified = new DateTime(2020, 03, 15),
-                    UserId = 3
+                    UserId = 3,
+                    MediaTypeId = 13
                 });
             modelBuilder.Entity<MediaEntry>().HasData
                 (new MediaEntry
@@ -125,7 +132,8 @@ namespace MediaDatabase.Models
                     Id = 7,
                     Name = "Game D",
                     LastModified = new DateTime(2015, 10, 03),
-                    UserId = 4
+                    UserId = 4,
+                    MediaTypeId = 13
                 });
             modelBuilder.Entity<MediaEntry>().HasData
                 (new MediaEntry
@@ -133,7 +141,8 @@ namespace MediaDatabase.Models
                     Id = 8,
                     Name = "Game E",
                     LastModified = new DateTime(2016, 06, 05),
-                    UserId = 4
+                    UserId = 4,
+                    MediaTypeId = 14
                 });
             modelBuilder.Entity<MediaEntry>().HasData
                 (new MediaEntry
@@ -141,7 +150,8 @@ namespace MediaDatabase.Models
                     Id = 9,
                     Name = "Game F",
                     LastModified = new DateTime(2017, 05, 05),
-                    UserId = 4
+                    UserId = 4,
+                    MediaTypeId = 14
                 });
             modelBuilder.Entity<MediaEntry>().HasData
                 (new MediaEntry
@@ -151,7 +161,8 @@ namespace MediaDatabase.Models
                     LastModified = new DateTime(2020, 05, 15),
                     Size = 256,
                     SizeType = "PG",
-                    UserId = 2
+                    UserId = 2,
+                    MediaTypeId = 1
                 });
             modelBuilder.Entity<MediaEntry>().HasData
                 (new MediaEntry
@@ -161,7 +172,8 @@ namespace MediaDatabase.Models
                     LastModified = new DateTime(2020, 05, 15),
                     Size = 117,
                     SizeType = "PG",
-                    UserId = 1
+                    UserId = 1,
+                    MediaTypeId = 1
                 });
             modelBuilder.Entity<MediaEntry>().HasData
                 (new MediaEntry
@@ -171,7 +183,8 @@ namespace MediaDatabase.Models
                     LastModified = new DateTime(2020, 05, 15),
                     Size = 400,
                     SizeType = "PG",
-                    UserId = 3
+                    UserId = 3,
+                    MediaTypeId = 1
                 });
             modelBuilder.Entity<MediaEntry>().HasData
                 (new MediaEntry
@@ -181,7 +194,8 @@ namespace MediaDatabase.Models
                     LastModified = new DateTime(2020, 01, 01),
                     Size = 7,
                     SizeType = "TR",
-                    UserId = 4
+                    UserId = 4,
+                    MediaTypeId = 5
                 });
             modelBuilder.Entity<MediaEntry>().HasData
                 (new MediaEntry
@@ -191,7 +205,8 @@ namespace MediaDatabase.Models
                     LastModified = new DateTime(2020, 01, 01),
                     Size = 9,
                     SizeType = "TR",
-                    UserId = 4
+                    UserId = 4,
+                    MediaTypeId = 5
                 });
             modelBuilder.Entity<MediaEntry>().HasData
                 (new MediaEntry
@@ -201,7 +216,120 @@ namespace MediaDatabase.Models
                     LastModified = new DateTime(2020, 01, 01),
                     Size = 10,
                     SizeType = "TR",
-                    UserId = 4
+                    UserId = 4,
+                    MediaTypeId = 5
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType
+                {
+                    Id = 0,
+                    Name = "Unknown",
+                    UserId = 1
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType 
+                { 
+                    Id = 1,
+                    Name = "Book",
+                    UserId = 1 
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType
+                {
+                    Id = 2,
+                    Name = "Magazine",
+                    UserId = 1
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType
+                {
+                    Id = 3,
+                    Name = "Comic",
+                    UserId = 1
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType
+                {
+                    Id = 4,
+                    Name = "Manga",
+                    UserId = 1
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType
+                {
+                    Id = 5,
+                    Name = "AudioCompactDisc",
+                    UserId = 1
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType
+                {
+                    Id = 6,
+                    Name = "DigitalVersatileDisc",
+                    UserId = 1
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType
+                {
+                    Id = 7,
+                    Name = "VideoHomeSystemCassetteTape",
+                    UserId = 1
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType
+                {
+                    Id = 8,
+                    Name = "AudioCassetteTape",
+                    UserId = 1
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType
+                {
+                    Id = 9,
+                    Name = "VinylRecord",
+                    UserId = 1
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType
+                {
+                    Id = 10,
+                    Name = "FlashDrive",
+                    UserId = 1
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType
+                {
+                    Id = 11,
+                    Name = "SecureDigitalCard",
+                    UserId = 1
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType
+                {
+                    Id = 12,
+                    Name = "ExternalHardDiscDrive",
+                    UserId = 1
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType
+                {
+                    Id = 13,
+                    Name = "VideoGameCD",
+                    UserId = 1
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType
+                {
+                    Id = 14,
+                    Name = "VideoGameDVD",
+                    UserId = 1
+                });
+            modelBuilder.Entity<MediaType>().HasData
+                (new MediaType
+                {
+                    Id = 15,
+                    Name = "VideoGameCartridge",
+                    UserId = 1
                 });
         }
     }
